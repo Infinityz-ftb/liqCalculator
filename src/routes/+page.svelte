@@ -210,6 +210,12 @@ Capital Surplus: ${-capitalGap}
 				>
 					Download Text File
 				</button>
+				<div>
+					<p class=" text-sm text-red-400">
+						Use of this calculator is indicative only, and does not constitute financial advice.
+						Quality of results are subject to the accuracy of the information provided by the user.
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
