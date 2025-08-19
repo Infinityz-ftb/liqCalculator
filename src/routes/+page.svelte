@@ -39,7 +39,15 @@
 	let capitalRequired12Months = $derived(totalCapitalRequired);
 	let capitalRequired24Months = $derived(totalCapitalRequired);
 
-	let capitalGap = $derived(totalCapitalRequired - availableCapital);
+	let capitalGap = $derived.by(() => {
+		if (monthsBetween >= 24) {
+			// Don’t subtract – just show you have full available capital
+			return -availableCapital;
+		} else {
+			// Normal gap calculation
+			return totalCapitalRequired - availableCapital;
+		}
+	});
 
 	function exportToText() {
 		const data = `
@@ -200,7 +208,7 @@ Capital Surplus: ${-capitalGap}
 					<p class={capitalGap > 0 ? 'font-semibold text-red-600' : 'font-semibold text-green-600'}>
 						{capitalGap > 0
 							? `You are short by $${capitalGap.toLocaleString()}`
-							: `You have $${Math.abs(capitalGap).toLocaleString()} surplus`}
+							: `You have $${Math.abs(capitalGap).toLocaleString()} surplus available right now!`}
 					</p>
 				</div>
 
