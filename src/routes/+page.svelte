@@ -202,7 +202,7 @@ Capital Surplus: ${-capitalGap}
 					</p>
 					<p>
 						{#if monthsBetween >= 12}
-							Capital required in 24 Months or Moree: ${capitalRequired24Months.toLocaleString()}
+							Capital required in 24 Months or More: ${capitalRequired24Months.toLocaleString()}
 						{/if}
 					</p>
 					<p class={capitalGap > 0 ? 'font-semibold text-red-600' : 'font-semibold text-green-600'}>
